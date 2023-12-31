@@ -29,10 +29,20 @@ public class TextBoxTests2 {
         $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("8906654345");
         //календарь
-        //$("#dateOfBirthInput").click();
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption(2);
+        $(".react-datepicker__year-select").selectOption(86);
+        $(".react-datepicker__day--027").click();
+        $("#subjectsInput").setValue("Biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("1.jpg");
-        $("#currentAddress").setValue("Some street 1");
+        //$("#uploadPicture").uploadFromClasspath("1.jpg");
+        $("#currentAddress").setValue("Lenina54");
+
+        //$("#state").scrollIntoView(true);
+        $("#stateCity-wrapper").find(byText("Select State")).click();
+        $(byText("NCR")).click();
+        $("#stateCity-wrapper").find(byText("Select City")).click();
+        $(byText("Gurgaon")).click();
         $("#submit").click();
 
         //$(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("FirstNameValue LastNameValue"));
