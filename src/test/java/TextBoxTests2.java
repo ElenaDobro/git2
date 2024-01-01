@@ -35,25 +35,27 @@ public class TextBoxTests2 {
         $(".react-datepicker__day--027").click();
         $("#subjectsInput").setValue("Biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        //$("#uploadPicture").uploadFromClasspath("1.jpg");
+        $("#uploadPicture").uploadFromClasspath("C:\\Users\\edobrovolskaya\\IdeaProjects\\git23\\src\1.jpg");
         $("#currentAddress").setValue("Lenina54");
 
-        //$("#state").scrollIntoView(true);
+        $("#state").scrollIntoView(true);
         $("#stateCity-wrapper").find(byText("Select State")).click();
         $(byText("NCR")).click();
         $("#stateCity-wrapper").find(byText("Select City")).click();
         $(byText("Gurgaon")).click();
         $("#submit").click();
 
-        //$(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("FirstNameValue LastNameValue"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Elena Dobrovolskaya"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("ally999@mail.ru"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Female"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("8906654345"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("27 February,1986"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Biology"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("1.jpg"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Lenina54"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Gurgaon"));
+        $("#closeLargeModal").click();
 
-
-
-
-
-        $("#output #name").shouldHave(text("Alex"));
-        $("#output #email").shouldHave(text("alex@egorov.com"));
-        $("#output #currentAddress").shouldHave(text("Some street 1"));
-        $("#output #permanentAddress").shouldHave(text("Another street 1"));
-    }
+            }
 }
