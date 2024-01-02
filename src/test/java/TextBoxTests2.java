@@ -35,7 +35,8 @@ public class TextBoxTests2 {
         $(".react-datepicker__day--027").click();
         $("#subjectsInput").setValue("Biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        //$("#uploadPicture").uploadFromClasspath("C:\\Users\\edobrovolskaya\\IdeaProjects\\git23\\src\\1.jpg");
+        //$("#uploadPicture").uploadFromClasspath("1.jpg");
+        $("#uploadPicture").uploadFile(new File("C:\\Users\\edobrovolskaya\\IdeaProjects\\git23\\src\\test\\resources\\1.jpg"));
         $("#currentAddress").setValue("Lenina54");
 
         $("#state").scrollIntoView(true);
@@ -52,10 +53,10 @@ public class TextBoxTests2 {
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("27 February,1986"));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Biology"));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
-        //$(".table-responsive").$(byText("Picture")).parent().shouldHave(text("1.jpg"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("1.jpg"));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Lenina54"));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Gurgaon"));
-        $("#closeLargeModal").click();
+        //("#closeLargeModal").click();
 
             }
 }
