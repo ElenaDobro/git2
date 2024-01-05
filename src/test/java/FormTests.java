@@ -2,27 +2,26 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.*;
-public class TextBoxTests2 {
 
+public class FormTests {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen =false;
     }
 
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Elena");
         $("#lastName").setValue("Dobrovolskaya");
         $("#userEmail").setValue("ally999@mail.ru");
@@ -35,15 +34,17 @@ public class TextBoxTests2 {
         $(".react-datepicker__day--027").click();
         $("#subjectsInput").setValue("Biology").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        //$("#uploadPicture").uploadFromClasspath("1.jpg");
-        $("#uploadPicture").uploadFile(new File("C:\\Users\\edobrovolskaya\\IdeaProjects\\git23\\src\\test\\resources\\1.jpg"));
+        $("#uploadPicture").uploadFromClasspath("1.jpg");
+        //$("#uploadPicture").uploadFile(new File("C:\\Users\\edobrovolskaya\\IdeaProjects\\git23\\src\\test\\resources\\1.jpg"));
         $("#currentAddress").setValue("Lenina54");
 
         $("#state").scrollIntoView(true);
         $("#stateCity-wrapper").find(byText("Select State")).click();
-        $(byText("NCR")).click();
+        //$(byText("NCR")).click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#stateCity-wrapper").find(byText("Select City")).click();
-        $(byText("Gurgaon")).click();
+        //$(byText("Gurgaon")).click();
+        $("#stateCity-wrapper").$(byText("Gurgaon")).click();
         $("#submit").click();
 
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Elena Dobrovolskaya"));
