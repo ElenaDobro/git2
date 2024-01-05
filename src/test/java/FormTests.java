@@ -57,7 +57,7 @@ public class FormTests {
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("1.jpg"));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Lenina54"));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Gurgaon"));
-        //("#closeLargeModal").click();
+        $("#closeLargeModal").click();
 
             }
 }
