@@ -1,5 +1,4 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -9,24 +8,27 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.*;
+
 public class SelenideRepSearch {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen =false;}
+        Configuration.holdBrowserOpen = false;
+    }
+
     @Test
     void fillFormTest() {
 
-open("https://github.com/");
-$("[placeholder='Search or jump to...']").click();
-$("#query-builder-test").setValue("selenide").pressEnter();
-$$("[data-testid='results-list']").first().$("a").click();
-$("#wiki-tab").click();
-$("[placeholder='Find a page…']").click();
-$("#wiki-pages-filter").setValue("SoftAssertions");
-$("#wiki-pages-box").shouldHave(text("SoftAssertions")).shouldBe(visible);
-$("#wiki-pages-box").$(byText("SoftAssertions")).click();
+        open("https://github.com/");
+        $("[placeholder='Search or jump to...']").click();
+        $("#query-builder-test").setValue("selenide").pressEnter();
+        $$("[data-testid='results-list']").first().$("a").click();
+        $("#wiki-tab").click();
+        $("[placeholder='Find a page…']").click();
+        $("#wiki-pages-filter").setValue("SoftAssertions");
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions")).shouldBe(visible);
+        $("#wiki-pages-box").$(byText("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
                 "class Tests {\n" +
                 "  @Test\n" +
@@ -40,7 +42,7 @@ $("#wiki-pages-box").$(byText("SoftAssertions")).click();
                 "}"));
 
     }
-    }
+}
 
 
 // Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
