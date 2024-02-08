@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ActionsTest {
@@ -27,5 +25,18 @@ public class ActionsTest {
         //Проверьте, что прямоугольники действительно поменялись
         $("#column-a").shouldHave(text("B")).shouldBe(visible);
         $("#column-b").shouldHave(text("A")).shouldBe(visible);
+    }
+
+    public static class TestBase {
+
+        @BeforeAll
+        static void beforeAll() {
+            Configuration.baseUrl = "https://demoqa.com";
+            Configuration.browserSize = "1920x1080";
+    //        Configuration.browser = "chrome";
+            Configuration.timeout = 10000;
+    //        Configuration.holdBrowserOpen = false;
+        }
+
     }
 }
